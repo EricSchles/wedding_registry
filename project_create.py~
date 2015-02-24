@@ -1,0 +1,6 @@
+from syncano import client
+SyncanoApi = client.SyncanoApi
+instance_name = os.environ.get("SYNCANO_INSTANCE_NAME")
+api_key = os.environ.get("SYNCANO_API_KEY")
+project = syncano.project_new('test', message_id=1)
+project_id = project['data']['project']['id']

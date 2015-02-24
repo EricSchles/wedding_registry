@@ -1,0 +1,22 @@
+from flask import Flask, render_template, request
+import os
+import datetime
+from syncano import client
+SyncanoApi = client.SyncanoApi
+app = Flask(__name__)
+instance_name = os.environ.get("SYNCANO_INSTANCE_NAME")
+api_key = os.environ.get("SYNCANO_API_KEY")
+
+@app.route("/index")
+@app.route("/")
+def index():
+	
+        syncano = SyncanoApi(instance_name,api_key)
+	project_id = "3964"
+	collection_id = "12784"
+	syncano.data_new(project_id,collection_id=collection_id,text=str(datetime.datetime.now()))
+	return render_template("index.html")
+
+
+if __name__ == '__main__':
+	app.run(debug=True)

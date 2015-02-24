@@ -1,0 +1,4 @@
+set up a script that creates the project and stores the variables in a serialize file
+
+set up a environment variables that are not application specific - instance name and api key.
+
